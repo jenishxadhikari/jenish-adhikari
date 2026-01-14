@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-import { Menu } from 'lucide-react'
+import { Menu } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 
 import { MAIN_NAV } from '@/config/site'
 
@@ -15,7 +16,7 @@ export function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger>
-        <Menu />
+        <HugeiconsIcon icon={Menu} className="size-5" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

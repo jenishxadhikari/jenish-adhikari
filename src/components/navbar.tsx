@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { FaGithub } from 'react-icons/fa'
+import { Github01Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 
 import { MAIN_NAV } from '@/config/site'
 
@@ -56,7 +57,7 @@ export function Navbar() {
                 variant: 'ghost'
               })}
             >
-              <FaGithub />
+              <HugeiconsIcon icon={Github01Icon} className="size-5" />
             </Link>
 
             <div className="bg-accent h-6 w-px" />
