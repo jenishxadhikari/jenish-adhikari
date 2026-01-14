@@ -14,8 +14,8 @@ export function ExternalLink({ href, children }: ExternalLinkProps) {
       target="_blank"
       className={buttonVariants({
         size: 'sm',
-        variant: 'secondary',
-        className: 'border text-xs font-normal hover:border-green-400'
+        variant: 'ghost',
+        className: 'hover:border-primary border text-xs font-normal'
       })}
     >
       {children}

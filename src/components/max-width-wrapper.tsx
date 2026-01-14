@@ -8,5 +8,5 @@ type MaxWidthWrapperProps = {
 }
 
 export function MaxWidthWrapper({ className, children }: MaxWidthWrapperProps) {
-  return <div className={cn('mx-auto h-full w-full max-w-2xl p-2.5', className)}>{children}</div>
+  return <div className={cn('mx-auto h-full w-full max-w-3xl', className)}>{children}</div>
 }
