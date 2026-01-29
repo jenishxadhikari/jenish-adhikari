@@ -2,7 +2,8 @@
 
 import { use } from 'react'
 
-import { LoaderIcon } from 'lucide-react'
+import { Loading03Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/react'
 
 import { cn } from '@/lib/utils'
 
@@ -76,7 +77,7 @@ export function GitHubContributionGraph({ contributions }: { contributions: Prom
 export function GitHubContributionFallback() {
   return (
     <div className="flex h-[162px] w-full items-center justify-center">
-      <LoaderIcon className="text-muted-foreground animate-spin" />
+      <HugeiconsIcon icon={Loading03Icon} className="text-muted-foreground animate-spin" />
     </div>
   )
 }
