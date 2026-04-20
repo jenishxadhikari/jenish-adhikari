@@ -1,3 +1,5 @@
+import { title } from 'process'
+
 import { Github01Icon, Linkedin02Icon, NewTwitterIcon } from '@hugeicons/core-free-icons'
 
 import { Blog, NavItem, Project, Social } from '@/types'
@@ -100,5 +102,21 @@ export const BLOGS: Blog[] = [
     title: "i built my own interpreter and it's kinda cool",
     publishedAt: 'November 29, 2025',
     timeToRead: '11'
+  }
+]
+
+export const WORKS = [
+  {
+    title: 'Full Stack Developer Intern',
+    company: 'DB Workshop And IT Support Pvt. Ltd.',
+    period: 'Nov 2025 - Apr 2026',
+    location: 'Remote, Kathmandu, Nepal',
+    technologies: ['TypeScript', 'Next.js', 'PostgreSQL'],
+    points: [
+      'Refactored and developed modules in restaurant-management application with Next.js, TypeScript, and PostgreSQL.',
+      'Built user creation and invitation flow also ERP location management end-to-end.',
+      'Developed POS floorplan/table logic, quick ordering, and theme toggle while fixing state/rendering bugs.',
+      'Maintained clean Git/GitHub workflow through reviews and production-ready deliveries.'
+    ]
   }
 ]

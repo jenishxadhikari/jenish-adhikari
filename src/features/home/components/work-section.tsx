@@ -1,15 +1,22 @@
+import Link from 'next/link'
+
 import { WORKS } from '@/config/site'
 
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 import { WorkCard } from '@/components/work-card'
 
-export default function Work() {
+export function WorkSection() {
   return (
-    <section className="flex flex-1 flex-col">
-      <MaxWidthWrapper className="border-accent flex-1 border-x py-6">
-        <div className="space-y-4">
-          <h1 className="px-2 text-3xl font-semibold tracking-tight">Work</h1>
-          <div className="grid grid-cols-1 gap-4 px-4">
+    <section>
+      <MaxWidthWrapper className="border-accent border-x border-b py-3">
+        <div className="space-y-2 py-3">
+          <div className="flex items-center justify-between px-2">
+            <h2 className="text-2xl font-semibold tracking-tight">Work</h2>
+            <Link href="/work" className="text-sm underline-offset-2 hover:underline">
+              See all
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-2 px-2">
             {WORKS.map((item, index) => (
               <WorkCard
                 key={index}
@@ -18,7 +25,6 @@ export default function Work() {
                 period={item.period}
                 location={item.location}
                 technologies={item.technologies}
-                points={item.points}
               />
             ))}
           </div>
