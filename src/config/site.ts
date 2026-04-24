@@ -1,5 +1,3 @@
-import { title } from 'process'
-
 import { Github01Icon, Linkedin02Icon, NewTwitterIcon } from '@hugeicons/core-free-icons'
 
 import { Blog, NavItem, Project, Social } from '@/types'
@@ -8,11 +6,11 @@ export const GITHUB_USERNAME = 'jenishxadhikari'
 
 export const SITE_INFO = {
   name: 'Jenish Adhikari',
-  jobTitle: 'Backend Developer',
+  jobTitle: 'Full Stack Developer',
   url: process.env.APP_URL || 'https://www.jenish-adhikari.com.np',
   ogImage: '/og-image.png',
-  description: 'Backend developer building stuff.',
-  keywords: ['portfolio', 'backend', 'developer']
+  description: 'Full stack developer building stuff.',
+  keywords: ['portfolio', 'full-stack', 'developer']
 }
 
 export const MAIN_NAV: NavItem[] = [
