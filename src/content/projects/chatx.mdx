@@ -1,0 +1,36 @@
+## Overview
+
+ChatX is a real-time chat application built around instant messaging. The goal is to make a conversation feel continuous: send a message, keep the connection open, and let updates arrive without refreshing the page.
+
+The project brings together a React interface, a Node.js backend, WebSocket communication, and MongoDB storage.
+
+## Real-time messaging
+
+WebSockets provide a persistent connection between the browser and the server. That connection supports messages in both directions, making it a natural fit for chat.
+
+A useful way to think about the message path is:
+
+```text
+Sender → WebSocket server → Recipient
+                ↓
+            Message storage
+```
+
+The live connection and stored history serve different purposes. The connection carries updates as they happen, while storage makes a conversation available beyond a single browser session.
+
+## Technology choices
+
+- **TypeScript** gives the frontend and backend a shared language for describing message data.
+- **React** provides the interface for displaying conversations and composing messages.
+- **Node.js and WebSockets** support the persistent connections behind instant messaging.
+- **MongoDB** provides the database for stored application data.
+
+## Engineering focus
+
+Chat is a useful problem for exploring the boundary between interface state and server state. A message can appear in an interface before the server accepts it, and a connection can disappear while the application is still open.
+
+Those situations make the distinction between a local interaction and a confirmed server event important. They also show why low latency is only one part of a good messaging experience: the interface needs to communicate what happened clearly.
+
+## Explore the code
+
+The [ChatX repository](https://github.com/jenishxadhikari/chatx) contains the project source. It is the place to explore the implementation and its current setup instructions.

@@ -1,58 +1,68 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
-import { Github01Icon, LinkSquare02Icon } from '@hugeicons/core-free-icons'
+import { LinkSquare02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 
-import { Badge } from '@/components/ui/badge'
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card'
+import type { Project } from '@/types'
 
-interface ProjectCardProps {
-  href: string
-  githubLink: string
-  title: string
-  description: string
-  tags: string[]
-}
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { ProjectMetadata } from '@/components/project-metadata'
 
-export function ProjectCard({ href, githubLink, title, description, tags }: ProjectCardProps) {
+export function ProjectCard({
+  slug,
+  href,
+  title,
+  description,
+  cover,
+  year,
+  status,
+  languages
+}: Project) {
   return (
-    <Card className="group hover:ring-primary transition-colors">
-      <CardHeader>
-        <CardTitle className="text-lg">{title}</CardTitle>
-        <CardDescription className="text-muted-foreground group-hover:text-foreground tracking-wide">
-          {description}
-        </CardDescription>
-        <CardAction className="flex items-center gap-2">
-          <Link href={githubLink} target="_blank">
-            <HugeiconsIcon icon={Github01Icon} className="size-6 transition-all hover:scale-110" />
-          </Link>
-          {href && (
-            <Link href={href} target="_blank">
-              <HugeiconsIcon
-                icon={LinkSquare02Icon}
-                className="size-6 transition-all hover:scale-110"
-              />
+    <Card className="group hover:bg-muted/40 h-full gap-0 bg-transparent py-0 ring-0 transition-colors motion-reduce:transition-none">
+      <Link
+        href={`/projects/${slug}`}
+        aria-label={`Read about ${title}`}
+        className="border-accent focus-visible:ring-ring relative block aspect-video overflow-hidden border-b outline-none focus-visible:ring-2 focus-visible:ring-inset"
+      >
+        <Image
+          src={cover}
+          alt=""
+          fill
+          sizes="(max-width: 639px) 100vw, (max-width: 1152px) 50vw, 576px"
+          className="object-cover"
+        />
+      </Link>
+      <CardContent className="flex flex-1 flex-col items-start gap-4 p-5 sm:p-6">
+        <div className="flex-1 space-y-2">
+          <h2 className="decoration-primary text-xl leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-4 group-hover:underline">
+            <Link
+              href={`/projects/${slug}`}
+              className="focus-visible:outline-ring rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              {title}
             </Link>
-          )}
-        </CardAction>
-      </CardHeader>
-      <CardContent className="flex flex-wrap items-center gap-2">
-        {tags.map((tag, index) => (
-          <Badge
-            variant="outline"
-            key={index}
-            className="text-muted-foreground group-hover:border-primary group-hover:text-foreground transition-all"
-          >
-            {tag}
-          </Badge>
-        ))}
+          </h2>
+          <p className="text-foreground/60 text-sm leading-relaxed">{description}</p>
+        </div>
+        <ProjectMetadata year={year} status={status} languages={languages} />
+        {href && (
+          <div className="flex flex-wrap gap-2 pt-2">
+            <Button
+              render={<Link href={href} target="_blank" rel="noopener noreferrer" />}
+              nativeButton={false}
+              variant="outline"
+              size="sm"
+              aria-label={`Open ${title} live site`}
+              className="text-foreground/70 gap-2 rounded-lg"
+            >
+              <HugeiconsIcon icon={LinkSquare02Icon} aria-hidden="true" />
+              Visit site
+            </Button>
+          </div>
+        )}
       </CardContent>
     </Card>
   )

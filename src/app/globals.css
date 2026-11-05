@@ -184,3 +184,89 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+
+.blog-prose {
+  color: color-mix(in oklch, var(--foreground) 80%, transparent);
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.blog-prose > * + * {
+  margin-top: 1.5rem;
+}
+.blog-prose > :first-child {
+  margin-top: 0;
+}
+.blog-prose :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--foreground);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  margin-top: 2.5rem;
+  scroll-margin-top: 6rem;
+}
+.blog-prose h1 {
+  font-size: 2rem;
+  line-height: 1.02;
+  letter-spacing: var(--tracking-tighter);
+}
+.blog-prose h2 {
+  font-size: 1.5rem;
+}
+.blog-prose h3 {
+  font-size: 1.25rem;
+}
+.blog-prose :is(ul, ol) {
+  padding-left: 1.5rem;
+}
+.blog-prose ul {
+  list-style: disc;
+}
+.blog-prose ol {
+  list-style: decimal;
+}
+.blog-prose li + li {
+  margin-top: 0.5rem;
+}
+.blog-prose a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.blog-prose a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+}
+.blog-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  background: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+}
+.blog-prose code {
+  font-family: ui-monospace, monospace;
+}
+.blog-prose :not(pre) > code {
+  background: var(--muted);
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+.blog-prose blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1.25rem;
+  color: var(--foreground);
+}
+.blog-prose hr {
+  border-color: var(--border);
+  margin-block: 2.5rem;
+}
+.blog-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}

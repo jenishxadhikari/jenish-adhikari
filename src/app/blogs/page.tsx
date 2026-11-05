@@ -1,32 +1,32 @@
-// import { BLOGS } from '@/config/site'
+import type { Metadata } from 'next'
+
+import { getPosts } from '@/lib/blog'
 
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
 
-// import { BlogCard } from '@/components/blog-card'
+import { BlogList } from '@/features/blog/components/blog-list'
 
-export default function Blogs() {
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Notes on building for the web, understanding the internals, and learning by doing.',
+  alternates: { canonical: '/blogs' }
+}
+
+export default async function Blogs() {
+  const posts = await getPosts()
+
   return (
     <section className="flex flex-1 flex-col">
-      {/* <MaxWidthWrapper className="border-x-1 flex-1 border-accent py-6">
-        <div className='space-y-4'>
-          <h1 className="px-2 text-3xl font-semibold tracking-tight">Blogs</h1>
-          <div className='flex flex-col gap-y-4 px-4'>
-            {
-              BLOGS.map((item, index) => (
-                <BlogCard
-                  key={index}
-                  href={item.href}
-                  title={item.title}
-                  publishedAt={item.publishedAt}
-                  timeToRead={item.timeToRead}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </MaxWidthWrapper> */}
-      <MaxWidthWrapper className="border-accent flex-1 border-x py-6 text-center">
-        <p>Work in progress.</p>
+      <MaxWidthWrapper className="border-accent flex-1 border-x">
+        <header className="flex flex-col items-center gap-5 px-5 py-10 text-center sm:py-12">
+          <h1 className="font-mono text-5xl leading-[1.02] tracking-tighter sm:text-7xl">
+            The dev blog
+          </h1>
+          <p className="text-foreground/60 max-w-md text-base leading-relaxed text-balance">
+            Notes on building for the web, understanding the internals, and learning by doing.
+          </p>
+        </header>
+        <BlogList posts={posts} />
       </MaxWidthWrapper>
     </section>
   )

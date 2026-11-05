@@ -1,34 +1,41 @@
 import Link from 'next/link'
 
-import { BLOGS } from '@/config/site'
+import { getPosts } from '@/lib/blog'
+import { formatPostDate } from '@/lib/blog-types'
 
-import { BlogCard } from '@/components/blog-card'
-import { MaxWidthWrapper } from '@/components/max-width-wrapper'
+import { Button } from '@/components/ui/button'
 
-export function BlogsSection() {
+import { ContentPreviewCard } from './content-preview-card'
+
+export async function BlogsSection() {
+  const posts = (await getPosts()).slice(0, 3)
+
   return (
-    <section>
-      <MaxWidthWrapper className="border-accent border-x border-b py-3">
-        <div className="space-y-2 py-3">
-          <div className="flex items-center justify-between px-2">
-            <h2 className="text-2xl font-semibold tracking-tight">Blogs</h2>
-            <Link href="/blogs" className="text-sm underline-offset-2 hover:underline">
-              See all
-            </Link>
-          </div>
-          <div className="flex flex-col gap-y-2 px-2">
-            {BLOGS.map((item, index) => (
-              <BlogCard
-                key={index}
-                href={item.href}
-                title={item.title}
-                publishedAt={item.publishedAt}
-                timeToRead={item.timeToRead}
-              />
-            ))}
-          </div>
-        </div>
-      </MaxWidthWrapper>
+    <section id="blogs" aria-labelledby="home-blogs" className="min-w-0 scroll-mt-24">
+      <header className="border-accent flex items-center justify-between gap-4 border-b px-5 py-4 sm:px-8">
+        <h2 id="home-blogs" className="text-2xl font-semibold tracking-tight">
+          From the blog
+        </h2>
+        <Button
+          render={<Link href="/blogs" />}
+          nativeButton={false}
+          variant="outline"
+          size="sm"
+          className="text-foreground/70 rounded-lg"
+        >
+          All posts
+        </Button>
+      </header>
+      {posts.map((post) => (
+        <ContentPreviewCard
+          key={post.slug}
+          href={`/blogs/${post.slug}`}
+          title={post.title}
+          description={post.description}
+          cover={post.cover}
+          metadata={`${formatPostDate(post.publishedAt)} · ${post.readingTime} min read`}
+        />
+      ))}
     </section>
   )
 }

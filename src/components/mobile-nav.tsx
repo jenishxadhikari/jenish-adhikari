@@ -31,7 +31,8 @@ export function MobileNav() {
             className={buttonVariants({
               size: 'sm',
               variant: 'link',
-              className: 'text-primary-foreground/80!'
+              className:
+                'text-primary-foreground/80! decoration-wavy decoration-2 underline-offset-4'
             })}
             onClick={() => setOpen(false)}
           >

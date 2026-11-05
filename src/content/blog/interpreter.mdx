@@ -1,0 +1,68 @@
+export const post = {
+  title: 'I built my own interpreter, and it’s kinda cool',
+  description:
+    'From a string of characters to a running program. A look at the little pieces that make a language work.',
+  publishedAt: '2025-11-28',
+  readingTime: 2,
+  cover: '/blog/interpreter.svg'
+}
+
+Building an interpreter is a good way to turn something that feels like magic into a collection of ordinary functions. You can start with arithmetic and still encounter the central ideas behind a programming language.
+
+## Start with a tiny language
+
+The first milestone does not need variables, functions, or a standard library. It can be as small as evaluating this expression:
+
+```text
+2 + 3 * 4
+```
+
+The result should be `14`, so splitting on spaces and running everything left to right is not enough. The interpreter needs to understand structure.
+
+## Characters become tokens
+
+The lexer scans the source and groups characters into meaningful pieces: numbers, operators, and parentheses. A number such as `123` becomes one token, rather than three unrelated characters.
+
+Whitespace can be skipped. An unrecognized character should produce an error with its position, rather than silently disappearing.
+
+## Tokens become a tree
+
+The parser turns the token stream into an abstract syntax tree. Multiplication has higher precedence than addition, so it sits deeper in this tree:
+
+```text
+       +
+      / \
+     2   *
+        / \
+       3   4
+```
+
+Parentheses let the programmer change that structure. Parsing `(2 + 3) * 4` produces a different tree and a different result.
+
+## The tree becomes a value
+
+The evaluator visits each node. A number evaluates to itself. A binary expression evaluates its left and right children, then applies the operator.
+
+```typescript
+type Expression =
+  | { kind: 'number'; value: number }
+  | {
+      kind: 'binary'
+      operator: '+' | '*'
+      left: Expression
+      right: Expression
+    }
+
+function evaluate(node: Expression): number {
+  if (node.kind === 'number') return node.value
+  const left = evaluate(node.left)
+  const right = evaluate(node.right)
+  return node.operator === '+' ? left + right : left * right
+}
+```
+
+## The next useful feature
+
+Variables introduce an environment: a map from names to values. Functions add scope. Each feature builds on the same pipeline instead of replacing it.
+
+The most satisfying part is seeing the same few ideas keep working as the language grows. A tiny interpreter is small enough to understand, but rich enough to teach you something new every time you extend it.

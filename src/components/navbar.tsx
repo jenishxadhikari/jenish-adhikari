@@ -3,9 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Github01Icon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
-
 import { MAIN_NAV } from '@/config/site'
 
 import { MaxWidthWrapper } from './max-width-wrapper'
@@ -17,7 +14,7 @@ export function Navbar() {
   const pathName = usePathname()
   return (
     <>
-      <div className="bg-background fixed h-2 w-full" />
+      <div aria-hidden="true" className="bg-background fixed inset-x-0 top-0 z-10 h-2" />
       <nav className="border-accent bg-background/80 sticky inset-x-0 top-2 z-10 mb-2 border-collapse border-y backdrop-blur-lg transition-all">
         <MaxWidthWrapper className="border-accent flex h-12 items-center justify-between border-x px-1">
           <Link
@@ -41,30 +38,17 @@ export function Navbar() {
                   variant: 'link',
                   className:
                     pathName !== item.href
-                      ? 'text-primary-foreground/80!'
-                      : 'text-foreground! underline underline-offset-4'
+                      ? 'text-primary-foreground/80! decoration-wavy decoration-2 underline-offset-4'
+                      : 'text-foreground! underline decoration-wavy decoration-2 underline-offset-4'
                 })}
               >
                 {item.title}
               </Link>
             ))}
 
-            <Link
-              href="https://github.com/jenishxadhikari"
-              target="_blank"
-              className={buttonVariants({
-                size: 'icon',
-                variant: 'ghost'
-              })}
-            >
-              <HugeiconsIcon icon={Github01Icon} className="size-5" />
-            </Link>
-
             <div className="bg-accent h-6 w-px" />
-
             <ModeToggle />
           </div>
-
           <div className="md:hidden">
             <MobileNav />
           </div>

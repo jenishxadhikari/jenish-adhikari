@@ -23,7 +23,7 @@ export function GitHubContributionGraph({ contributions }: { contributions: Prom
 
   return (
     <ContributionGraph
-      className="mx-auto py-2"
+      className="w-full py-2"
       data={data}
       blockSize={11}
       blockMargin={3}

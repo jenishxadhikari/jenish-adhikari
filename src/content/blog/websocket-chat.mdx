@@ -1,0 +1,44 @@
+export const post = {
+  title: 'What happens after a chat message is sent?',
+  description:
+    'Following a message from one browser to another, through WebSockets, storage, and reconnects.',
+  publishedAt: '2025-11-27',
+  readingTime: 2,
+  cover: '/blog/websockets.svg'
+}
+
+A chat interface makes sending a message look immediate. Behind that interaction are several separate events: accepting the message, saving it, delivering it, and confirming what happened.
+
+## Keep the connection open
+
+A WebSocket provides a persistent connection between a browser and a server. After the connection is established, either side can send data without opening a new HTTP request for every message.
+
+The connection is a transport. It does not decide who can join a room, how messages are stored, or whether delivery is guaranteed. Those are application responsibilities.
+
+## Give each message an identity
+
+Generate a client message ID before sending. The interface can show the message as pending while waiting for an acknowledgment.
+
+```typescript
+const message = {
+  clientId: crypto.randomUUID(),
+  roomId: 'project-chat',
+  body: 'The preview is ready.'
+}
+
+socket.send(JSON.stringify({ type: 'message.send', payload: message }))
+```
+
+The server should authenticate the connection, check room membership, validate the body, and save the message. Only then should it acknowledge acceptance. A uniqueness constraint on the sender and client ID makes retries safe.
+
+## Reconnects are part of the design
+
+Connections drop when a laptop sleeps or a phone changes networks. Reconnecting the socket alone does not recover messages sent during the gap.
+
+Track the last received server sequence or cursor. On reconnect, request messages after that cursor and merge them by their persistent IDs. Use a server ordering key rather than relying on timestamps from different devices.
+
+## Be precise about delivery
+
+“Sent” can mean accepted by the server. “Delivered” can mean received by another device. “Read” requires another explicit event. A connected socket does not prove any of these by itself.
+
+A reliable chat system starts with making those states clear. Once the states are explicit, pending indicators, retries, and error messages have something real to represent.
