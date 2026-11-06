@@ -9,7 +9,7 @@ import { MAIN_NAV } from '@/config/site'
 import { buttonVariants } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 
-import { ModeToggle } from './theme/mode-toogle'
+import { ModeToggle } from './theme/mode-toggle'
 
 export function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -32,7 +32,7 @@ export function MobileNav() {
               size: 'sm',
               variant: 'link',
               className:
-                'text-primary-foreground/80! decoration-wavy decoration-2 underline-offset-4'
+                'text-muted-foreground! decoration-primary decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none]'
             })}
             onClick={() => setOpen(false)}
           >

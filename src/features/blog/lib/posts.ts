@@ -2,7 +2,7 @@ import { readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { cache } from 'react'
 
-import type { BlogPost } from '@/lib/blog-types'
+import type { BlogPost } from '@/features/blog/types'
 
 export const getPosts = cache(async (): Promise<BlogPost[]> => {
   const files = await readdir(path.join(process.cwd(), 'src/content/blog'))

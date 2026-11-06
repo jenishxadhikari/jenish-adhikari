@@ -1,21 +1,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { formatPostDate, type BlogPost } from '@/lib/blog-types'
-
 import { Card, CardContent } from '@/components/ui/card'
+
+import { formatPostDate } from '@/features/blog/lib/format-post-date'
+import type { BlogPost } from '@/features/blog/types'
 
 export function BlogList({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="border-accent grid grid-cols-1 border-t sm:grid-cols-2">
+    <div className="border-border grid grid-cols-1 border-t sm:grid-cols-2">
       {posts.map((post) => (
-        <article key={post.slug} className="border-accent border-b sm:odd:border-r">
+        <article
+          key={post.slug}
+          className="border-border border-b last:border-b-0 sm:odd:border-r sm:[&:nth-last-child(2):nth-child(odd)]:border-b-0"
+        >
           <Link
             href={`/blogs/${post.slug}`}
             className="group focus-visible:ring-ring block h-full outline-none focus-visible:ring-2 focus-visible:ring-inset"
           >
             <Card className="group-hover:bg-muted/40 h-full gap-0 bg-transparent py-0 ring-0 transition-colors motion-reduce:transition-none">
-              <div className="border-accent relative aspect-video overflow-hidden border-b">
+              <div className="border-border relative aspect-video overflow-hidden border-b">
                 <Image
                   src={post.cover}
                   alt=""
@@ -26,12 +30,14 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               </div>
               <CardContent className="flex flex-1 flex-col items-start gap-4 p-5 sm:p-6">
                 <div className="flex-1 space-y-2">
-                  <h2 className="decoration-primary text-xl leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-4 group-hover:underline">
+                  <h2 className="decoration-primary text-xl leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none] group-hover:underline">
                     {post.title}
                   </h2>
-                  <p className="text-foreground/60 text-sm leading-relaxed">{post.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {post.description}
+                  </p>
                 </div>
-                <div className="text-foreground/50 pt-2 text-[11px]">
+                <div className="text-muted-foreground pt-2 text-[11px]">
                   <span>
                     <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt)}</time>
                     <span className="mx-2" aria-hidden="true">

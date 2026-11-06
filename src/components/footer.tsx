@@ -11,8 +11,8 @@ import { MaxWidthWrapper } from './max-width-wrapper'
 export function Footer() {
   const currentDate = new Date().getFullYear()
   return (
-    <footer className="border-accent mb-2 border-y">
-      <MaxWidthWrapper className="border-accent flex min-h-16 items-center justify-between gap-3 border-x px-5 py-3 sm:px-8">
+    <footer className="border-border mb-2 border-y">
+      <MaxWidthWrapper className="border-border flex min-h-16 items-center justify-between gap-3 border-x px-5 py-3 sm:px-8">
         <p className="text-muted-foreground text-left text-xs">
           &copy; {currentDate} Jenish Adhikari
         </p>
@@ -26,7 +26,6 @@ export function Footer() {
               size="icon"
               aria-label={social.title}
               title={social.title}
-              className="rounded-lg"
             >
               <HugeiconsIcon icon={social.icon} aria-hidden="true" />
             </Button>

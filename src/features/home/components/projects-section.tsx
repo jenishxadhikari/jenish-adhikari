@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { PROJECTS } from '@/config/site'
-
 import { Button } from '@/components/ui/button'
-import { ProjectMetadata } from '@/components/project-metadata'
+
+import { ProjectMetadata } from '@/features/projects/components/project-metadata'
+import { PROJECTS } from '@/features/projects/data'
 
 import { ContentPreviewCard } from './content-preview-card'
 
@@ -12,9 +12,9 @@ export function ProjectsSection() {
     <section
       id="projects"
       aria-labelledby="home-projects"
-      className="border-accent min-w-0 scroll-mt-24 border-b lg:border-r lg:border-b-0"
+      className="border-border min-w-0 scroll-mt-24 border-b lg:border-r lg:border-b-0"
     >
-      <header className="border-accent flex items-center justify-between gap-4 border-b px-5 py-4 sm:px-8">
+      <header className="border-border flex items-center justify-between gap-4 border-b px-5 py-4 sm:px-8">
         <h2 id="home-projects" className="text-2xl font-semibold tracking-tight">
           Projects
         </h2>
@@ -23,7 +23,7 @@ export function ProjectsSection() {
           nativeButton={false}
           variant="outline"
           size="sm"
-          className="text-foreground/70 rounded-lg"
+          className="text-muted-foreground"
         >
           All projects
         </Button>

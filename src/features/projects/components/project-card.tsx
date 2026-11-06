@@ -4,11 +4,12 @@ import Link from 'next/link'
 import { LinkSquare02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 
-import type { Project } from '@/types'
-
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { ProjectMetadata } from '@/components/project-metadata'
+
+import type { Project } from '@/features/projects/types'
+
+import { ProjectMetadata } from './project-metadata'
 
 export function ProjectCard({
   slug,
@@ -25,7 +26,7 @@ export function ProjectCard({
       <Link
         href={`/projects/${slug}`}
         aria-label={`Read about ${title}`}
-        className="border-accent focus-visible:ring-ring relative block aspect-video overflow-hidden border-b outline-none focus-visible:ring-2 focus-visible:ring-inset"
+        className="border-border focus-visible:ring-ring relative block aspect-video overflow-hidden border-b outline-none focus-visible:ring-2 focus-visible:ring-inset"
       >
         <Image
           src={cover}
@@ -37,7 +38,7 @@ export function ProjectCard({
       </Link>
       <CardContent className="flex flex-1 flex-col items-start gap-4 p-5 sm:p-6">
         <div className="flex-1 space-y-2">
-          <h2 className="decoration-primary text-xl leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-4 group-hover:underline">
+          <h2 className="decoration-primary text-xl leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none] group-hover:underline">
             <Link
               href={`/projects/${slug}`}
               className="focus-visible:outline-ring rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
@@ -45,7 +46,7 @@ export function ProjectCard({
               {title}
             </Link>
           </h2>
-          <p className="text-foreground/60 text-sm leading-relaxed">{description}</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
         </div>
         <ProjectMetadata year={year} status={status} languages={languages} />
         {href && (
@@ -56,7 +57,7 @@ export function ProjectCard({
               variant="outline"
               size="sm"
               aria-label={`Open ${title} live site`}
-              className="text-foreground/70 gap-2 rounded-lg"
+              className="text-muted-foreground gap-2"
             >
               <HugeiconsIcon icon={LinkSquare02Icon} aria-hidden="true" />
               Visit site

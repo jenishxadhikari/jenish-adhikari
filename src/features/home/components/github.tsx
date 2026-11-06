@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { getGitHubContributions } from '../action'
+import { getGitHubContributions } from '../lib/github-contributions'
 import { GitHubContributionFallback, GitHubContributionGraph } from './github-graph'
 
 export function GitHubContributions() {

@@ -7,7 +7,7 @@ import { MAIN_NAV } from '@/config/site'
 
 import { MaxWidthWrapper } from './max-width-wrapper'
 import { MobileNav } from './mobile-nav'
-import { ModeToggle } from './theme/mode-toogle'
+import { ModeToggle } from './theme/mode-toggle'
 import { buttonVariants } from './ui/button'
 
 export function Navbar() {
@@ -15,14 +15,15 @@ export function Navbar() {
   return (
     <>
       <div aria-hidden="true" className="bg-background fixed inset-x-0 top-0 z-10 h-2" />
-      <nav className="border-accent bg-background/80 sticky inset-x-0 top-2 z-10 mb-2 border-collapse border-y backdrop-blur-lg transition-all">
-        <MaxWidthWrapper className="border-accent flex h-12 items-center justify-between border-x px-1">
+      <nav className="border-border bg-background/80 sticky inset-x-0 top-2 z-10 mb-2 border-collapse border-y backdrop-blur-lg transition-all">
+        <MaxWidthWrapper className="border-border flex h-12 items-center justify-between border-x px-1">
           <Link
             href="/"
             className={buttonVariants({
               size: 'sm',
               variant: 'link',
-              className: 'text-foreground! font-mono text-xl font-semibold'
+              className:
+                'text-foreground! decoration-primary font-mono text-xl font-semibold decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none]'
             })}
           >
             JENISH
@@ -38,15 +39,15 @@ export function Navbar() {
                   variant: 'link',
                   className:
                     pathName !== item.href
-                      ? 'text-primary-foreground/80! decoration-wavy decoration-2 underline-offset-4'
-                      : 'text-foreground! underline decoration-wavy decoration-2 underline-offset-4'
+                      ? 'text-muted-foreground! decoration-primary decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none]'
+                      : 'text-foreground! decoration-primary underline decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none]'
                 })}
               >
                 {item.title}
               </Link>
             ))}
 
-            <div className="bg-accent h-6 w-px" />
+            <div className="bg-border h-6 w-px" />
             <ModeToggle />
           </div>
           <div className="md:hidden">

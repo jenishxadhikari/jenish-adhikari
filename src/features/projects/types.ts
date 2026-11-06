@@ -1,17 +1,3 @@
-import { IconSvgElement } from '@hugeicons/react'
-
-export type NavItem = {
-  title: string
-  href: string
-}
-
-export type Social = {
-  href: string
-  icon: IconSvgElement
-  title: string
-  username: string
-}
-
 export type Project = {
   year: number
   status: 'In progress' | 'Completed'

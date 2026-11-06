@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Introduction />
-      <MaxWidthWrapper className="border-accent grid border-x border-b lg:grid-cols-2">
+      <MaxWidthWrapper className="border-border grid border-x border-b lg:grid-cols-2">
         <ProjectsSection />
         <BlogsSection />
       </MaxWidthWrapper>

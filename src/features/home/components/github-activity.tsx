@@ -10,14 +10,14 @@ import { GitHubContributions } from './github'
 export function GithubActivity() {
   return (
     <section aria-labelledby="home-github">
-      <MaxWidthWrapper className="border-accent border-x">
+      <MaxWidthWrapper className="border-border border-x">
         <div className="space-y-6 px-5 py-6 sm:px-8">
           <header className="flex flex-wrap items-center justify-between gap-4">
             <div className="space-y-2">
               <h2 id="home-github" className="text-2xl font-semibold tracking-tight">
                 GitHub activity
               </h2>
-              <p className="text-foreground/60 text-sm">Contributions over the last year.</p>
+              <p className="text-muted-foreground text-sm">Contributions over the last year.</p>
             </div>
             <Button
               render={
@@ -30,7 +30,7 @@ export function GithubActivity() {
               nativeButton={false}
               variant="outline"
               size="sm"
-              className="text-foreground/70 rounded-lg"
+              className="text-muted-foreground"
             >
               View GitHub
             </Button>

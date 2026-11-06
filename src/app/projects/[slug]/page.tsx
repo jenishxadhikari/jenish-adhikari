@@ -6,14 +6,13 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft01Icon, Github01Icon, LinkSquare02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 
-import { PROJECTS } from '@/config/site'
-
 import { Button } from '@/components/ui/button'
+import { TableOfContents } from '@/components/article/table-of-contents'
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
-import { ProjectCard } from '@/components/project-card'
-import { ProjectMetadata } from '@/components/project-metadata'
 
-import { TableOfContents } from '@/features/blog/components/table-of-contents'
+import { ProjectCard } from '@/features/projects/components/project-card'
+import { ProjectMetadata } from '@/features/projects/components/project-metadata'
+import { PROJECTS } from '@/features/projects/data'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -50,15 +49,15 @@ export default async function ProjectPage({ params }: Props) {
   const relatedProjects = PROJECTS.filter((item) => item.slug !== slug).slice(0, 2)
 
   return (
-    <MaxWidthWrapper className="border-accent flex-1 border-x">
+    <MaxWidthWrapper className="border-border flex-1 border-x">
       <article>
-        <header className="border-accent mx-auto flex max-w-3xl flex-col items-center gap-5 border-b px-5 pt-8 pb-6 text-center sm:px-8 sm:pt-12 sm:pb-8">
+        <header className="border-border mx-auto flex max-w-3xl flex-col items-center gap-5 border-b px-5 pt-8 pb-6 text-center sm:px-8 sm:pt-12 sm:pb-8">
           <Button
             render={<Link href="/projects" />}
             nativeButton={false}
             variant="outline"
             size="sm"
-            className="mb-1 gap-2 rounded-lg"
+            className="mb-1 gap-2"
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} aria-hidden="true" />
             Back to projects
@@ -66,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
           <h1 className="font-mono text-3xl leading-[1.02] tracking-tighter text-balance sm:text-5xl">
             {project.title}
           </h1>
-          <p className="text-foreground/60 max-w-2xl text-base leading-relaxed text-balance sm:text-lg">
+          <p className="text-muted-foreground max-w-2xl text-base leading-relaxed text-balance sm:text-lg">
             {project.description}
           </p>
           <div className="flex justify-center">
@@ -82,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
               nativeButton={false}
               variant="outline"
               size="sm"
-              className="text-foreground/70 gap-2 rounded-lg"
+              className="text-muted-foreground gap-2"
             >
               <HugeiconsIcon icon={Github01Icon} aria-hidden="true" />
               View source
@@ -93,7 +92,7 @@ export default async function ProjectPage({ params }: Props) {
                 nativeButton={false}
                 variant="outline"
                 size="sm"
-                className="text-foreground/70 gap-2 rounded-lg"
+                className="text-muted-foreground gap-2"
               >
                 <HugeiconsIcon icon={LinkSquare02Icon} aria-hidden="true" />
                 Visit site
@@ -103,8 +102,11 @@ export default async function ProjectPage({ params }: Props) {
         </header>
         <div className="grid items-start gap-8 px-5 py-4 sm:px-8 sm:py-8 md:grid-cols-[minmax(0,1fr)_180px] lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-12">
           <TableOfContents key={project.slug} />
-          <div id="article-content" className="blog-prose min-w-0 md:order-1">
-            <div className="border-accent relative aspect-video overflow-hidden rounded-lg border">
+          <div
+            id="article-content"
+            className="typeset typeset-article min-w-0 md:order-1 [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24"
+          >
+            <div className="not-typeset border-border relative aspect-video overflow-hidden rounded-lg border">
               <Image
                 src={project.cover}
                 alt=""
@@ -119,7 +121,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </article>
       {relatedProjects.length > 0 && (
-        <section aria-labelledby="more-projects" className="border-accent mt-8 border-t">
+        <section aria-labelledby="more-projects" className="border-border mt-8 border-t">
           <div className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8">
             <h2 id="more-projects" className="text-xl font-semibold tracking-tight">
               More projects
@@ -129,14 +131,17 @@ export default async function ProjectPage({ params }: Props) {
               nativeButton={false}
               variant="outline"
               size="sm"
-              className="text-foreground/70 rounded-lg"
+              className="text-muted-foreground"
             >
               All projects
             </Button>
           </div>
-          <div className="border-accent grid grid-cols-1 border-t sm:grid-cols-2">
+          <div className="border-border grid grid-cols-1 border-t sm:grid-cols-2">
             {relatedProjects.map((item) => (
-              <article key={item.slug} className="border-accent border-b sm:odd:border-r">
+              <article
+                key={item.slug}
+                className="border-border border-b last:border-b-0 sm:odd:border-r sm:[&:nth-last-child(2):nth-child(odd)]:border-b-0"
+              >
                 <ProjectCard {...item} />
               </article>
             ))}

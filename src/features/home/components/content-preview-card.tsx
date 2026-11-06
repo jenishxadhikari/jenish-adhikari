@@ -20,13 +20,13 @@ export function ContentPreviewCard({
   metadata
 }: ContentPreviewCardProps) {
   return (
-    <article className="border-accent border-b last:border-b-0">
+    <article className="border-border border-b last:border-b-0">
       <Link
         href={href}
         className="group focus-visible:ring-ring block outline-none focus-visible:ring-2 focus-visible:ring-inset"
       >
         <Card className="group-hover:bg-muted/40 min-h-36 flex-row items-center gap-4 bg-transparent p-5 ring-0 transition-colors motion-reduce:transition-none sm:gap-5 sm:px-8">
-          <div className="border-accent relative aspect-square w-20 shrink-0 overflow-hidden rounded-md border sm:aspect-[4/3] sm:w-28">
+          <div className="border-border relative aspect-square w-20 shrink-0 overflow-hidden rounded-md border sm:aspect-[4/3] sm:w-28">
             <Image
               src={cover}
               alt=""
@@ -36,12 +36,16 @@ export function ContentPreviewCard({
             />
           </div>
           <CardContent className="min-w-0 flex-1 space-y-1.5 p-0">
-            <h3 className="decoration-primary text-base leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-4 group-hover:underline">
+            <h3 className="decoration-primary text-base leading-snug font-semibold tracking-tight decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none] group-hover:underline">
               {title}
             </h3>
-            <p className="text-foreground/60 line-clamp-2 text-xs leading-relaxed">{description}</p>
+            <p className="text-muted-foreground line-clamp-2 text-xs leading-relaxed">
+              {description}
+            </p>
             {metadata && (
-              <div className="text-foreground/50 pt-1 text-[10px] leading-relaxed">{metadata}</div>
+              <div className="text-muted-foreground pt-1 text-[10px] leading-relaxed">
+                {metadata}
+              </div>
             )}
           </CardContent>
         </Card>

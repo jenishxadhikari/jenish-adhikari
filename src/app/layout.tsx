@@ -10,7 +10,8 @@ import { ThemeProvider } from '@/components/theme/theme-provider'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--font-space-grotesk'
 })
 
 export const metadata: Metadata = {
@@ -69,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
       <body className={`${spaceGrotesk.className} flex min-h-screen flex-col antialiased`}>
         <ThemeProvider
           attribute="class"
