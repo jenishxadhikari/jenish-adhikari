@@ -8,14 +8,14 @@ import type { BlogPost } from '@/features/blog/types'
 
 export function BlogList({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="border-border grid grid-cols-1 border-t sm:grid-cols-2">
+    <div className="border-border grid flex-1 grid-cols-1 border-t sm:grid-cols-2">
       {posts.map((post) => (
         <article
           key={post.slug}
           className="border-border border-b last:border-b-0 sm:odd:border-r sm:[&:nth-last-child(2):nth-child(odd)]:border-b-0"
         >
           <Link
-            href={`/blogs/${post.slug}`}
+            href={`/blog/${post.slug}`}
             className="group focus-visible:ring-ring block h-full outline-none focus-visible:ring-2 focus-visible:ring-inset"
           >
             <Card className="group-hover:bg-muted/40 h-full gap-0 bg-transparent py-0 ring-0 transition-colors motion-reduce:transition-none">

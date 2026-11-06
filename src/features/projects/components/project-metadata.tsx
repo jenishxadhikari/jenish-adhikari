@@ -2,9 +2,9 @@ import { Badge } from '@/components/ui/badge'
 
 import type { Project } from '@/features/projects/types'
 
-type ProjectMetadataProps = Pick<Project, 'year' | 'status' | 'languages'>
+type ProjectMetadataProps = Pick<Project, 'year' | 'status'> & Partial<Pick<Project, 'languages'>>
 
-export function ProjectMetadata({ year, status, languages }: ProjectMetadataProps) {
+export function ProjectMetadata({ year, status, languages = [] }: ProjectMetadataProps) {
   return (
     <div
       className="text-muted-foreground flex flex-wrap items-center gap-2 text-[11px]"

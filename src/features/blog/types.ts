@@ -1,9 +1,8 @@
-export type BlogPostMetadata = {
+export type BlogPost = {
+  slug: string
   title: string
   description: string
   publishedAt: string
   readingTime: number
   cover: string
 }
-
-export type BlogPost = BlogPostMetadata & { slug: string }

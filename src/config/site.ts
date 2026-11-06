@@ -13,16 +13,16 @@ export const SITE_INFO = {
 
 export const MAIN_NAV = [
   {
-    title: 'Projects',
-    href: '/projects'
-  },
-  {
     title: 'Work',
     href: '/work'
   },
   {
-    title: 'Blogs',
-    href: '/blogs'
+    title: 'Projects',
+    href: '/projects'
+  },
+  {
+    title: 'Blog',
+    href: '/blog'
   }
 ]
 

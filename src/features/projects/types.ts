@@ -4,7 +4,7 @@ export type Project = {
   languages: string[]
   slug: string
   cover: string
-  href: string
+  href?: string
   githubLink: string
   title: string
   description: string

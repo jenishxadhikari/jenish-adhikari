@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <section className="flex flex-1 flex-col">
-      <MaxWidthWrapper className="border-border flex-1 border-x">
+      <MaxWidthWrapper className="border-border flex flex-1 flex-col border-x">
         <header className="flex flex-col items-center gap-5 px-5 py-10 text-center sm:py-12">
           <h1 className="font-mono text-5xl leading-[1.02] tracking-tighter sm:text-7xl">
             Projects
@@ -24,7 +24,7 @@ export default function Projects() {
             audio.
           </p>
         </header>
-        <div className="border-border grid grid-cols-1 border-t sm:grid-cols-2">
+        <div className="border-border grid flex-1 grid-cols-1 border-t sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <article
               key={project.githubLink}

@@ -8,7 +8,7 @@ Run `bun install` and `bun dev` to start the portfolio.
 src/
   app/                 Routes, metadata, layouts, and page composition
   features/
-    blog/              Post loading, date formatting, types, and blog cards
+    blog/              Post data, date formatting, types, and blog cards
     home/              Homepage sections and GitHub contribution fetching
     projects/          Project data, types, cards, and metadata
     work/              Work experience data, types, and cards
@@ -35,18 +35,23 @@ MDX stays in `content/` as the authoring source for both kinds of detail page.
 
 ## Writing a blog post
 
-Create `src/content/blog/your-slug.mdx`. The filename becomes `/blogs/your-slug`.
-Export the post details before your Markdown:
+Add an entry to `POSTS` in `src/features/blog/data.ts`:
 
-```mdx
-export const post = {
+```ts
+{
+  slug: 'your-slug',
   title: 'Your post title',
   description: 'A short summary for the article card and search engines.',
   publishedAt: '2026-11-05',
   readingTime: 3,
   cover: '/blog/your-cover.svg'
 }
+```
 
+Create `src/content/blog/your-slug.mdx` for the article body. The entry's `slug` must
+match the filename and becomes `/blogs/your-slug`:
+
+```mdx
 Your opening paragraph.
 
 ## A heading
@@ -54,7 +59,8 @@ Your opening paragraph.
 Markdown, code blocks, and React components work here.
 ```
 
-Place covers in `public/blog/`. Posts automatically appear newest first in the blog.
+Place covers in `public/blog/`. Listed posts appear newest first in the blog and homepage.
+MDX files without a data entry remain unpublished.
 The included articles are starter content; edit them before publishing.
 
 ## Project detail pages

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Building an API gateway</title>
+  <desc id="desc">A client sends requests through a central API gateway, which routes them to three backend services.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#45627d" stroke-opacity=".06"/>
+    </pattern>
+  </defs>
+
+  <path fill="#eaf0f6" d="M0 0h720v405H0z"/>
+  <path fill="url(#grid)" d="M0 0h720v405H0z"/>
+
+  <g stroke="#96afc3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M208 202h76m-7-5 7 5-7 5"/>
+    <path d="M436 202h33m0-78v156m0-156h43m-6-5 6 5-6 5m-37 73h43m-6-5 6 5-6 5m-37 73h43m-6-5 6 5-6 5"/>
+  </g>
+
+  <g fill="#f8fafc" stroke="#bdcddd" stroke-width="1.5">
+    <rect x="128" y="172" width="80" height="60" rx="8"/>
+    <rect x="284" y="138" width="152" height="128" rx="12"/>
+    <rect x="512" y="96" width="88" height="56" rx="8"/>
+    <rect x="512" y="174" width="88" height="56" rx="8"/>
+    <rect x="512" y="252" width="88" height="56" rx="8"/>
+  </g>
+
+  <path d="M128 188h80" stroke="#d6e1eb"/>
+  <g fill="#a8bdd0">
+    <circle cx="139" cy="180" r="2"/>
+    <circle cx="147" cy="180" r="2"/>
+    <circle cx="155" cy="180" r="2"/>
+  </g>
+  <path d="m153 202-7 6 7 6m30-12 7 6-7 6m-12-15-6 18" stroke="#7894ae" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="336" y="160" width="48" height="48" rx="12" fill="#e0eaf2"/>
+  <g stroke="#577793" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M347 197v-18a13 13 0 0 1 26 0v18m-30 0h34"/>
+    <path d="M354 197v-17a6 6 0 0 1 12 0v17"/>
+  </g>
+
+  <g stroke="#b9cbd9">
+    <path d="M524 114h64m-64 78h64m-64 78h64"/>
+  </g>
+  <g fill="#7894ae">
+    <circle cx="525" cy="106" r="2"/>
+    <circle cx="533" cy="106" r="2"/>
+    <circle cx="525" cy="184" r="2"/>
+    <circle cx="533" cy="184" r="2"/>
+    <circle cx="525" cy="262" r="2"/>
+    <circle cx="533" cy="262" r="2"/>
+  </g>
+  <g fill="#72a18d">
+    <circle cx="587" cy="106" r="2.5"/>
+    <circle cx="587" cy="184" r="2.5"/>
+    <circle cx="587" cy="262" r="2.5"/>
+    <rect x="237" y="198" width="8" height="8" rx="2"/>
+    <circle cx="469" cy="202" r="4"/>
+  </g>
+
+  <g font-family="ui-monospace,monospace" text-anchor="middle">
+    <text x="360" y="234" fill="#45627d" font-size="15">API gateway</text>
+    <text x="556" y="137" fill="#6886a0" font-size="11">/users</text>
+    <text x="556" y="215" fill="#6886a0" font-size="11">/orders</text>
+    <text x="556" y="293" fill="#6886a0" font-size="11">/payments</text>
+  </g>
+  <path d="M324 249h72" stroke="#c9d9e6" stroke-width="3" stroke-linecap="round"/>
+</svg>

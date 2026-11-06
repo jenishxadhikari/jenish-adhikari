@@ -19,11 +19,12 @@ export function Navbar() {
         <MaxWidthWrapper className="border-border flex h-12 items-center justify-between border-x px-1">
           <Link
             href="/"
+            aria-current={pathName === '/' ? 'page' : undefined}
             className={buttonVariants({
               size: 'sm',
               variant: 'link',
               className:
-                'text-foreground! decoration-primary font-mono text-xl font-semibold decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none]'
+                'text-foreground! decoration-primary font-mono text-xl font-semibold decoration-wavy decoration-2 underline-offset-6 [text-decoration-skip-ink:none] aria-[current=page]:underline'
             })}
           >
             JENISH

@@ -17,15 +17,15 @@ import { getPosts } from '@/features/blog/lib/posts'
 
 type Props = { params: Promise<{ slug: string }> }
 
-export async function generateStaticParams() {
-  return (await getPosts()).map(({ slug }) => ({ slug }))
+export function generateStaticParams() {
+  return getPosts().map(({ slug }) => ({ slug }))
 }
 
 export const dynamicParams = false
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = (await getPosts()).find((post) => post.slug === slug)
+  const post = getPosts().find((post) => post.slug === slug)
   if (!post) notFound()
 
   return {
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params
-  const posts = await getPosts()
+  const posts = getPosts()
   const post = posts.find((post) => post.slug === slug)
   if (!post) notFound()
   const { default: Content } = await import(`@/content/blog/${post.slug}.mdx`)
@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
       <article>
         <header className="border-border mx-auto flex max-w-3xl flex-col items-center gap-5 border-b px-5 pt-8 pb-6 text-center sm:px-8 sm:pt-12 sm:pb-8">
           <Button
-            render={<Link href="/blogs" />}
+            render={<Link href="/blog" />}
             nativeButton={false}
             variant="outline"
             size="sm"

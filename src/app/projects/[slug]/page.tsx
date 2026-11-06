@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft01Icon, Github01Icon, LinkSquare02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { TableOfContents } from '@/components/article/table-of-contents'
 import { MaxWidthWrapper } from '@/components/max-width-wrapper'
@@ -69,12 +70,19 @@ export default async function ProjectPage({ params }: Props) {
             {project.description}
           </p>
           <div className="flex justify-center">
-            <ProjectMetadata
-              year={project.year}
-              status={project.status}
-              languages={project.languages}
-            />
+            <ProjectMetadata year={project.year} status={project.status} />
           </div>
+          {project.tags.length > 0 && (
+            <ul aria-label="Technologies" className="flex flex-wrap justify-center gap-2">
+              {project.tags.map((technology) => (
+                <li key={technology}>
+                  <Badge variant="outline" className="h-auto rounded-md px-2 py-1">
+                    {technology}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          )}
           <div className="flex flex-wrap justify-center gap-2">
             <Button
               render={<Link href={project.githubLink} target="_blank" rel="noopener noreferrer" />}

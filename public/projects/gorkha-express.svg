@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Gorkha Express</title>
+  <desc id="desc">A railway ticket with a train, connected route stops, and a perforated booking stub on a soft green grid.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#355d4d" stroke-opacity=".06"/>
+    </pattern>
+    <pattern id="sleepers" width="24" height="18" patternUnits="userSpaceOnUse">
+      <path d="M12 2V16" stroke="#b7c9bd" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <path fill="#eaf0eb" d="M0 0h720v405H0z"/>
+  <path fill="url(#grid)" d="M0 0h720v405H0z"/>
+
+  <g stroke="#cbd8ce" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m116 134 69-63 40 37 63-67 82 90M406 110l49-49 51 53 34-32 64 61"/>
+    <path d="m268 62 20-21 23 25-15-5-9 7-10-9-9 3Z" fill="#f6f9f5"/>
+  </g>
+
+  <path d="M0 320h720v18H0z" fill="url(#sleepers)"/>
+  <path d="M0 324h720M0 334h720" stroke="#afc3b6" stroke-width="2"/>
+
+  <path d="M156 101h408a12 12 0 0 1 12 12v73a16 16 0 0 0 0 32v73a12 12 0 0 1-12 12H156a12 12 0 0 1-12-12v-73a16 16 0 0 0 0-32v-73a12 12 0 0 1 12-12Z" fill="#f9fbf8" stroke="#bdcec1" stroke-width="1.5"/>
+  <path d="M500 113v178" stroke="#bdcec1" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <g stroke="#527b65" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="187" y="140" width="62" height="80" rx="17" fill="#e3ede3"/>
+    <path d="M207 140v-7h22v7M195 171h46"/>
+    <rect x="195" y="152" width="46" height="30" rx="6" fill="#c8ddd0"/>
+    <path d="M218 152v30M201 220l-8 12m42-12 8 12m-45-6h40"/>
+    <circle cx="202" cy="201" r="3" fill="#527b65" stroke="none"/>
+    <circle cx="234" cy="201" r="3" fill="#527b65" stroke="none"/>
+    <path d="M213 201h10"/>
+  </g>
+
+  <g font-family="ui-monospace,monospace">
+    <text x="278" y="161" fill="#355d4d" font-size="21" letter-spacing="-.6">Gorkha</text>
+    <text x="278" y="187" fill="#355d4d" font-size="21" letter-spacing="-.6">Express</text>
+    <text x="278" y="213" fill="#719183" font-size="11">Railway ticketing</text>
+  </g>
+
+  <path d="M193 262h256" stroke="#9cb6a5" stroke-width="2"/>
+  <circle cx="193" cy="262" r="5" fill="#f9fbf8" stroke="#719183" stroke-width="2"/>
+  <circle cx="321" cy="262" r="4" fill="#f9fbf8" stroke="#9cb6a5" stroke-width="2"/>
+  <circle cx="449" cy="262" r="5" fill="#527b65"/>
+
+  <g stroke="#719183" stroke-linecap="square">
+    <path d="M524 143v96m5-96v96m10-96v96m5-96v96m11-96v96" stroke-width="2"/>
+    <path d="M533 143v96m16-96v96" stroke-width="4"/>
+  </g>
+  <rect x="522" y="255" width="35" height="17" rx="4" fill="#e3ede3"/>
+  <path d="m533 263 4 4 7-7" stroke="#527b65" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
